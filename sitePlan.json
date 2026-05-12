@@ -1,0 +1,49 @@
+{
+  "businessName": "SJ Stitches by Sarah Johnson",
+  "industry": "Fashion & Couture Design",
+  "tone": "elegant, creative, and warm",
+  "tagline": "Where Style Meets Artistry",
+  "sections": [
+    {
+      "id": "hero",
+      "name": "Hero",
+      "copy": "Welcome to SJ Stitches by Sarah Johnson - Your premier destination for bespoke couture and creative fashion design in Ughelli. We transform fabric into art, crafting unique pieces that celebrate your individuality and style. From elegant evening wear to statement pieces that turn heads, every stitch tells your story.",
+      "imagePrompt": "Elegant Nigerian fashion atelier with flowing fabrics in rich colors, professional sewing machines, rolls of premium textiles, soft natural lighting streaming through windows, mannequins displaying beautiful custom garments, warm and inviting creative workspace in Ughelli, Delta State",
+      "layout": "centered"
+    },
+    {
+      "id": "about",
+      "name": "About SJ Stitches",
+      "copy": "SJ Stitches is the creative vision of Sarah Johnson, a passionate fashion designer dedicated to bringing elegance and personality to every garment. Based in Ughelli North, Delta State, we specialize in custom couture that reflects the vibrant spirit of Nigerian fashion while incorporating contemporary design elements. Our atelier is a space where your fashion dreams come to life through expert craftsmanship, attention to detail, and a deep understanding of style. Whether you're looking for traditional attire with a modern twist, corporate wear that commands respect, or show-stopping pieces for special occasions, Sarah and her team work closely with each client to ensure perfect fit, exceptional quality, and designs that exceed expectations.",
+      "imagePrompt": "Professional Nigerian fashion designer Sarah Johnson in her creative studio, surrounded by fabric swatches and design sketches, warm smile, confident pose, African prints and contemporary fabrics visible, natural lighting, authentic workspace atmosphere in Delta State",
+      "layout": "split"
+    },
+    {
+      "id": "services",
+      "name": "Our Services",
+      "copy": "**Bespoke Couture Design**\nCustom-made garments tailored to your exact measurements and style preferences. From concept to creation, we craft pieces that are uniquely yours.\n\n**Bridal & Special Occasion Wear**\nMake your special day unforgettable with wedding gowns, bridesmaid dresses, and event attire designed to perfection.\n\n**Corporate & Business Attire**\nProfessional wardrobe pieces that blend sophistication with comfort, perfect for the modern Nigerian professional.\n\n**Traditional Wear with Contemporary Flair**\nCelebrate your heritage with beautifully crafted traditional attire featuring modern design elements and impeccable tailoring.\n\n**Alterations & Restyling**\nBreathe new life into existing garments with expert alterations, restyling, and custom modifications.\n\n**Fashion Consultation**\nPersonalized styling advice to help you discover looks that enhance your natural beauty and confidence.",
+      "imagePrompt": "Grid layout showcasing diverse Nigerian fashion pieces: elegant wedding gown, modern corporate suit, colorful traditional attire, casual chic outfit, all on mannequins in bright professional studio setting with Delta State cultural elements",
+      "layout": "grid"
+    },
+    {
+      "id": "testimonials",
+      "name": "What Our Clients Say",
+      "copy": "**Mrs. Blessing Okoro**\n\"Sarah created the most beautiful wedding dress for me. She listened to every detail I wanted and delivered beyond my expectations. The craftsmanship was exceptional, and I felt like a queen on my special day. Highly recommend SJ Stitches!\"\n\n**Mr. David Efe**\n\"I needed professional corporate wear for an important business presentation. Sarah's attention to detail and understanding of style gave me the confidence I needed. The suits fit perfectly and were delivered on time. Outstanding service!\"\n\n**Miss Grace Ayomide**\n\"From traditional attire to contemporary designs, SJ Stitches never disappoints. Sarah has an incredible eye for fashion and always knows exactly what will look best. She's my go-to designer for every occasion.\"\n\n**Chief Emmanuel Oghene**\n\"The quality of workmanship at SJ Stitches is unmatched in Ughelli. Sarah transformed my vision into reality with a custom agbada that received compliments everywhere I went. True artistry!\"",
+      "imagePrompt": "Collage of happy Nigerian clients wearing beautiful custom garments at various events: wedding, corporate meeting, traditional ceremony, casual outing, diverse ages and styles, authentic Delta State settings, warm and celebratory atmosphere",
+      "layout": "cards"
+    },
+    {
+      "id": "contact",
+      "name": "Visit Our Atelier",
+      "copy": "Ready to create something beautiful? Visit SJ Stitches at our atelier in Ughelli North or reach out to schedule a consultation with Sarah Johnson. We're excited to bring your fashion vision to life.\n\n**Location:** 288 Old Ugh/Warri Road, Oviri Agbarho, Ughelli North, Delta State, Nigeria\n\n**Phone:** 0708 819 2752\n\n**Hours:** Monday - Saturday, 9:00 AM - 6:00 PM\n\nWhether you're planning for a special event or simply want to refresh your wardrobe, we're here to help. Walk-ins are welcome, but appointments are recommended to ensure dedicated time with our designer.\n\nFollow us on social media to see our latest creations and stay inspired with fashion tips and trend updates. Your journey to exceptional style starts here at SJ Stitches.",
+      "imagePrompt": "Welcoming exterior of fashion boutique on Old Ughelli-Warri Road, clean storefront with SJ Stitches signage, inviting entrance, Nigerian street scene with palm trees, professional business appearance, Delta State architectural style, warm afternoon lighting",
+      "layout": "centered"
+    }
+  ],
+  "contact": {
+    "phone": "+234 708 819 2752",
+    "email": "",
+    "address": "288 Old Ugh/Warri Road, Oviri Agbarho, Ughelli North, Delta State, Nigeria",
+    "whatsapp": "https://wa.me/2347088192752"
+  }
+}
