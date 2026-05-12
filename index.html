@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SJ Stitches by Sarah Johnson - Where Style Meets Artistry</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600&family=Nunito+Sans:wght@300;400;600&display=swap">
+    <style>
+        :root {
+            --color-primary: #19131a;
+            --color-accent: #6e21dd;
+            --color-bg: #FAF8FC;
+            --color-text: #18141A;
+            --color-surface: #2a242d;
+            --color-secondary-accent: #c8a58a;
+            --font-display: 'Raleway', sans-serif;
+            --font-body: 'Nunito Sans', sans-serif;
+            --border-radius: 10px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(250, 248, 252, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-text);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-accent);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 3px;
+            background: var(--color-text);
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 70px;
+            right: -100%;
+            width: 300px;
+            height: calc(100vh - 70px);
+            background: var(--color-bg);
+            box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+            z-index: 999;
+            padding: 2rem;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+        }
+
+        .mobile-menu ul li {
+            margin-bottom: 1.5rem;
+        }
+
+        .mobile-menu ul a {
+            text-decoration: none;
+            color: var(--color-text);
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            display: block;
+            padding: 0.5rem 0;
+        }
+
+        .mobile-menu ul a:hover {
+            color: var(--color-accent);
+        }
+
+        /* Hero Section */
+        #hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+            animation: fadeUp 0.6s ease forwards;
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            padding: 0 2rem;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .hero-content .tagline {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-family: var(--font-display);
+            font-weight: 300;
+            color: var(--color-secondary-accent);
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--color-accent);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(110, 33, 221, 0.3);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 2rem;
+            animation: fadeUp 0.6s ease forwards;
+        }
+
+        section:nth-child(2) { animation-delay: 0.1s; }
+        section:nth-child(3) { animation-delay: 0.2s; }
+        section:nth-child(4) { animation-delay: 0.3s; }
+        section:nth-child(5) { animation-delay: 0.4s; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--color-secondary-accent);
+            text-align: center;
+            margin-bottom: 3rem;
+            font-family: var(--font-display);
+        }
+
+        /* About Section */
+        #about {
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+        }
+
+        .about-text p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--color-text);
+        }
+
+        /* Services Section */
+        #services {
+            background: var(--color-bg);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(110, 33, 221, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--color-accent);
+        }
+
+        .service-card p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--color-text);
+        }
+
+        /* Testimonials Section */
+        #testimonials {
+            background: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: var(--color-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--color-accent);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--color-secondary-accent);
+            font-family: Georgia, serif;
+            position: absolute;
+            top: 0;
+            left: 1rem;
+            opacity: 0.3;
+        }
+
+        .testimonial-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--color-primary);
+        }
+
+        .testimonial-card p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--color-text);
+            font-style: italic;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: var(--color-primary);
+            color: white;
+            text-align: center;
+        }
+
+        #contact .section-title {
+            color: white;
+        }
+
+        #contact .section-subtitle {
+            color: var(--color-secondary-accent);
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .contact-item {
+            font-size: 1.1rem;
+        }
+
+        .contact-item strong {
+            color: var(--color-secondary-accent);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--color-secondary-accent);
+        }
+
+        .whatsapp-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .whatsapp-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-float::before {
+            content: '💬';
+            font-size: 1.8rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-surface);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p {
+            font-size: 0.95rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            section {
+                padding: 60px 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content .tagline {
+                font-size: 1.4rem;
+            }
+
+            .about-content {
+                gap: 2rem;
+            }
+
+            .about-image {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            section {
+                padding: 48px 1.5rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content .tagline {
+                font-size: 1.2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-image {
+                height: 300px;
+            }
+
+            .services-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .whatsapp-float::before {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">SJ Stitches</div>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="mobile-menu">
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <img src="https://images.pexels.com/photos/33767494/pexels-photo-33767494.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Hero Background" class="hero-image">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>SJ Stitches by Sarah Johnson</h1>
+            <p class="tagline">Where Style Meets Artistry</p>
+            <p>Welcome to SJ Stitches by Sarah Johnson - Your premier destination for bespoke couture and creative fashion design in Ughelli. We transform fabric into art, crafting unique pieces that celebrate your individuality and style. From elegant evening wear to statement pieces that turn heads, every stitch tells your story.</p>
+            <a href="#contact" class="cta-button">Get in Touch</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About SJ Stitches</h2>
+            <div class="about-content">
+                <img src="https://images.pexels.com/photos/35689783/pexels-photo-35689783.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="About SJ Stitches" class="about-image">
+                <div class="about-text">
+                    <p>SJ Stitches is the creative vision of Sarah Johnson, a passionate fashion designer dedicated to bringing elegance and personality to every garment. Based in Ughelli North, Delta State, we specialize in custom couture that reflects the vibrant spirit of Nigerian fashion while incorporating contemporary design elements. Our atelier is a space where your fashion dreams come to life through expert craftsmanship, attention to detail, and a deep understanding of style. Whether you're looking for traditional attire with a modern twist, corporate wear that commands respect, or show-stopping pieces for special occasions, Sarah and her team work closely with each client to ensure perfect fit, exceptional quality, and designs that exceed expectations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Crafting Excellence in Every Stitch</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Bespoke Couture Design</h3>
+                    <p>Custom-made garments tailored to your exact measurements and style preferences. From concept to creation, we craft pieces that are uniquely yours.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Bridal & Special Occasion Wear</h3>
+                    <p>Make your special day unforgettable with wedding gowns, bridesmaid dresses, and event attire designed to perfection.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Corporate & Business Attire</h3>
+                    <p>Professional wardrobe pieces that blend sophistication with comfort, perfect for the modern Nigerian professional.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Traditional Wear with Contemporary Flair</h3>
+                    <p>Celebrate your heritage with beautifully crafted traditional attire featuring modern design elements and impeccable tailoring.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Alterations & Restyling</h3>
+                    <p>Breathe new life into existing garments with expert alterations, restyling, and custom modifications.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Fashion Consultation</h3>
+                    <p>Personalized styling advice to help you discover looks that enhance your natural beauty and confidence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <p class="section-subtitle">Stories of Style & Satisfaction</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <h4>Mrs. Blessing Okoro</h4>
+                    <p>Sarah created the most beautiful wedding dress for me. She listened to every detail I wanted and delivered beyond my expectations. The craftsmanship was exceptional, and I felt like a queen on my special day. Highly recommend SJ Stitches!</p>
+                </div>
+                <div class="testimonial-card">
+                    <h4>Mr. David Efe</h4>
+                    <p>I needed professional corporate wear for an important business presentation. Sarah's attention to detail and understanding of style gave me the confidence I needed. The suits fit perfectly and were delivered on time. Outstanding service!</p>
+                </div>
+                <div class="testimonial-card">
+                    <h4>Miss Grace Ayomide</h4>
+                    <p>From traditional attire to contemporary designs, SJ Stitches never disappoints. Sarah has an incredible eye for fashion and always knows exactly what will look best. She's my go-to designer for every occasion.</p>
+                </div>
+                <div class="testimonial-card">
+                    <h4>Chief Emmanuel Oghene</h4>
+                    <p>The quality of workmanship at SJ Stitches is unmatched in Ughelli. Sarah transformed my vision into reality with a custom agbada that received compliments everywhere I went. True artistry!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Visit Our Atelier</h2>
+            <div class="contact-content">
+                <p>Ready to create something beautiful? Visit SJ Stitches at our atelier in Ughelli North or reach out to schedule a consultation with Sarah Johnson. We're excited to bring your fashion vision to life.</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <strong>Location</strong>
+                        288 Old Ugh/Warri Road, Oviri Agbarho, Ughelli North, Delta State, Nigeria
+                    </div>
+                    <div class="contact-item">
+                        <strong>Phone</strong>
+                        <a href="tel:+2347088192752">+234 708 819 2752</a>
+                    </div>
+                    <div class="contact-item">
+                        <strong>Hours</strong>
+                        Monday - Saturday, 9:00 AM - 6:00 PM
+                    </div>
+                </div>
+                <p>Whether you're planning for a special event or simply want to refresh your wardrobe, we're here to help. Walk-ins are welcome, but appointments are recommended to ensure dedicated time with our designer.</p>
+                <p>Follow us on social media to see our latest creations and stay inspired with fashion tips and trend updates. Your journey to exceptional style starts here at SJ Stitches.</p>
+                <a href="https://wa.me/2347088192752" class="whatsapp-button">Chat on WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/2347088192752" class="whatsapp-float" target="_blank" rel="noopener noreferrer"></a>
+
+    <footer>
+        <p>&copy; 2024 SJ Stitches by Sarah Johnson. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenuBtn.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+            });
+
+            // Close mobile menu when clicking a link
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenuBtn.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                });
+            });
+        }
+    </script>
+</body>
+</html>
